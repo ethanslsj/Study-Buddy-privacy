@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>隐私政策 · Study Buddy</title>
+<meta name="description" content="Study Buddy（知识卡片 / 间隔重复 / AI 问答 / 番茄专注）隐私政策：数据全部存储在你的本机，AI 问答仅在您自行配置接口后才会发出请求。">
+<style>
+  :root{
+    --bg:#12181c; --card:#1b2329; --line:#2b353d;
+    --fg:#e6edf2; --dim:#9fb0bd; --accent:#27a67e;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:32px 20px 64px;
+    background:var(--bg); color:var(--fg);
+    font:16px/1.75 -apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",sans-serif;
+  }
+  main{max-width:760px;margin:0 auto}
+  h1{font-size:28px;margin:0 0 6px;letter-spacing:.5px}
+  .sub{color:var(--dim);font-size:14px;margin-bottom:28px}
+  section{
+    background:var(--card);border:1px solid var(--line);
+    border-radius:12px;padding:20px 22px;margin-bottom:16px;
+  }
+  h2{
+    font-size:17px;margin:0 0 12px;color:var(--accent);
+    display:flex;align-items:center;gap:8px;
+  }
+  h2::before{content:"";width:3px;height:16px;background:var(--accent);border-radius:2px}
+  p{margin:0 0 10px}
+  p:last-child{margin-bottom:0}
+  ul{margin:8px 0 0;padding-left:20px}
+  li{margin-bottom:6px}
+  table{width:100%;border-collapse:collapse;margin-top:8px;font-size:14px}
+  th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{color:var(--dim);font-weight:600;width:34%}
+  code{
+    background:#10161a;border:1px solid var(--line);border-radius:4px;
+    padding:1px 6px;font-size:13px;word-break:break-all;
+  }
+  a{color:var(--accent)}
+  .tag{
+    display:inline-block;background:rgba(39,166,126,.14);color:var(--accent);
+    border:1px solid rgba(39,166,126,.3);border-radius:999px;
+    padding:2px 10px;font-size:12px;margin-bottom:10px;
+  }
+  footer{color:var(--dim);font-size:13px;text-align:center;margin-top:28px}
+</style>
+</head>
+<body>
+<main>
+  <h1>隐私政策 · Study Buddy</h1>
+  <div class="sub">生效日期：2026 年 9 月 25 日　|　适用于 Windows 桌面版</div>
+
+  <section>
+    <p><strong>你的学习数据只存在你自己的电脑里，我们没有任何服务器，也看不到任何数据。</strong>
+    只有在你主动配置了第三方 AI 接口之后，应用才会把你输入的问题发送给你所选的那家服务商。</p>
+  </section>
+
+  <section>
+    <h2>数据存储在哪里</h2>
+    <table>
+      <tr><th>数据类型</th><th>存放位置</th></tr>
+      <tr><td>知识卡片、任务、复习记录、专注记录、AI 对话历史</td><td><code>%APPDATA%\Study&nbsp;Buddy\custom.db</code>（本机 SQLite 文件）</td></tr>
+      <tr><td>AI 接口配置（baseUrl / 模型 / API Key）</td><td><code>%APPDATA%\Study&nbsp;Buddy\settings.json</code>（本机文件）</td></tr>
+    </table>
+    <p style="margin-top:12px">两者都保存在本机，卸载应用时可选择保留。我们<strong>不上传、不同步、不备份</strong>这些内容到任何外部位置。</p>
+  </section>
+
+  <section>
+    <h2>AI 问答与网络访问</h2>
+    <p>AI 问答功能<strong>默认处于未配置状态</strong>。在你于「设置」中填写接口地址与 API Key 之前，该功能不会发出任何外部网络请求。</p>
+    <ul>
+      <li>一旦你配置了接口，你输入的问题、以及相关学科上下文会被发送<strong>到你指定的那家服务商</strong>（例如你填入的智谱 / DeepSeek / OpenAI / 硅基流动等地址）。</li>
+      <li>这部分数据的处理方式受该服务商自己的隐私政策约束，请在配置前自行确认你信任该服务商。</li>
+      <li>你填写的 API Key 只保存在本机；应用界面回读时只显示「是否已填写」，不会回显明文。</li>
+      <li>删除配置即可完全停止 AI 相关的网络访问。</li>
+    </ul>
+    <p style="margin-top:10px">除上述情况外，应用仅在本机 <code>127.0.0.1</code> 上启动一个内置服务用于界面通信，不对外发起请求。</p>
+  </section>
+
+  <section>
+    <h2>我们承诺</h2>
+    <ul>
+      <li><strong>不收集个人信息</strong>：无需注册、无需登录，我们不索取姓名、邮箱或手机号。</li>
+      <li><strong>不使用分析或统计 SDK</strong>：程序中不含任何第三方埋点、用户行为分析组件。</li>
+      <li><strong>不上报崩溃信息</strong>：未接入崩溃上报服务，运行错误仅输出到本机日志。</li>
+      <li><strong>不采集遥测</strong>：已在启动时设置 <code>NEXT_TELEMETRY_DISABLED=1</code>，禁用内置框架的遥测。</li>
+      <li><strong>不读取与学习无关的文件</strong>：应用只读写自己的数据库与配置文件。</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>儿童隐私</h2>
+    <p>本产品面向一般学习人群，不专门面向 13 岁以下儿童，也不会故意收集儿童的个人信息。由于所有数据均保存在用户本机且我们无法访问，我们不具备识别或收集儿童信息的能力。</p>
+  </section>
+
+  <section>
+    <h2>你的控制权</h2>
+    <ul>
+      <li>在应用内可直接删除任意卡片、任务、对话与专注记录。</li>
+      <li>卸载应用会移除程序；数据库文件会保留在你本机，可自行删除 <code>%APPDATA%\Study&nbsp;Buddy\</code> 目录。</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>政策变更</h2>
+    <p>若未来功能调整导致数据处理方式发生变化，我们会更新本页并修改顶部的生效日期。</p>
+  </section>
+
+  <section>
+    <h2>联系我们</h2>
+    <p>如对本隐私政策有疑问，请通过邮件联系：<a href="mailto:ethanslsj@gmail.com">ethanslsj@gmail.com</a></p>
+  </section>
+
+  <footer>Study Buddy · 私人学习秘书</footer>
+</main>
+</body>
+</html>
